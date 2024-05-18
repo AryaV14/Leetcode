@@ -10,11 +10,9 @@ public:
             else if(nums[i]<t && nums[i]>s)
                 s=nums[i];
             else if(nums[i]<t && nums[i]<s)
-               { flag=1; break;}
+               return true;
         }
-        if(flag==1)
-            return true;
-        else
+       
             return false;
     }
 };
