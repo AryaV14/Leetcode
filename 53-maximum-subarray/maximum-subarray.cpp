@@ -4,6 +4,7 @@ public:
         int n, maxSum, pre,suf,curMax,large;
         n=nums.size();
         pre=suf=maxSum=0;
+        large=INT_MIN;
         for(int i=0;i<n;i++)
         {
             if(pre<0)
@@ -21,7 +22,7 @@ public:
                 large=nums[i];
         }
         if(maxSum==0)
-           maxSum = large;
+           maxSum =large;
         return maxSum;      
     }
 };
