@@ -7,13 +7,9 @@ public:
         large=INT_MIN;
         for(int i=0;i<n;i++)
         {
-            if(pre<0)
-                pre=0;
-            pre+=nums[i];
-            if(pre>maxSum)
-            {
-                maxSum=pre;
-            }
+            
+            pre=max(nums[i],nums[i]+pre);
+            maxSum=max(pre,maxSum);
             if(nums[i]>large)
                 large=nums[i];
         }
