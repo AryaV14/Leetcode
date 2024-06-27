@@ -9,11 +9,12 @@ public:
         {
             if(pre<0)
                 pre=0;
-            if(suf<0)
-                suf=0;
+            // if(suf<0)
+            //     suf=0;
             pre+=nums[i];
-            suf+=nums[n-i-1];
-            curMax=max(pre,suf);
+            // suf+=nums[n-i-1];
+            // curMax=max(pre,suf);
+            curMax=pre;
             if(curMax>maxSum)
             {
                 maxSum=curMax;
