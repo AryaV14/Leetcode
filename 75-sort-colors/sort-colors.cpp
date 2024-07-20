@@ -1,30 +1,20 @@
 class Solution {
 public:
-    void sortColors(vector<int>& nums) {
-        int count0=0,count1=0,count2=0;
-        for(int i=0;i<nums.size();i++)
+    void sortColors(vector<int>& nums) 
+    {
+        int track[] = {0,0,0};
+        for (int num:nums)
         {
-            if(nums[i]==0)
+            track[num]++;
+        }    
+        int index = 0;
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<track[i];j++)
             {
-                count0++;
+                nums[index]=i;
+                index++;
             }
-            else if(nums[i]==1)
-            {
-                count1++;
-            }
-            else
-                count2++;
-
         }
-        for(int i=0;i<count0;i++){
-            nums[i]=0;
-        }
-        for(int i=count0;i<count0+count1;i++){
-            nums[i]=1;
-        }
-        for(int i=count0+count1;i<count0+count1+count2;i++){
-            nums[i]=2;
-        }
- 
     }
 };
