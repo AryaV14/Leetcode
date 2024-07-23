@@ -1,39 +1,43 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        unordered_map<int,int> map;
-        vector<vector<int>> ans;
-        sort(nums.begin() , nums.end());     //Sorted Array
-        if(nums.size() < 3){                // Base Case 1
-            return {};
-        }
-        if(nums[0] > 0){                    // Base Case 2
-            return {};
-        }
-         for(int i=0;i<nums.size();i++)
+        vector<vector<int>>ans;
+        if(nums.size()<2)return ans;
+        sort(nums.begin(),nums.end());
+        for(int i =0 ;i<nums.size()-2;i++)
         {
-            map[nums[i]]=i;
-        }
-        for(int i=0;i<nums.size()-2;i++)
-        {   
-            if(nums[i] > 0){     
-                break;
-            }
-            for(int j = i + 1 ; j < nums.size() - 1 ; ++j)
-                
+            int  a  = nums[i];
+            if(a>0)break;
+            if(i>0&&nums[i]==nums[i-1])
+            continue;
+            for(int left = i+1,right = nums.size()-1;left<right;)
+            {
+                int b = nums[left];
+                int c = nums[right];
+                int value = a+b+c;
+                if(value == 0)
                 {
-                    int x=(nums[i]+nums[j])*-1;
-                    if(map.count(x)&& map.find(x)->second>j)
+                    ans.push_back(vector<int>{a,b,c});
+                    while(b==nums[left]&&left<right)
                     {
-                        vector<int> ret={nums[i],nums[j],x};
-                        ans.push_back(ret);
+                        left++;
                     }
-                j = map.find(nums[j])->second; 
+                    while(c==nums[right]&&left<right)
+                    {
+                        right--;
+                    }
+                }
+                else if(value>0)
+                {
+                    right--;
+                }
+                else{
+                    left++;
+                }
+
             }
-            i = map.find(nums[i])->second; 
-            
+         
         }
         return ans;
-        
     }
 };
