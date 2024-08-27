@@ -1,5 +1,5 @@
 
-# Leetcode 250 cheatsheet
+# Cheatsheet
 
-Leetcoding 3 months challenge...
+Solved problems
 
