@@ -4,7 +4,7 @@ public:
         int index=2;
         if(nums.size()<=2)
         {
-            return nums.size();
+            return index=nums.size();
         }
         for(int i=2;i<nums.size();i++)
         {
